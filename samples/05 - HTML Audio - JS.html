@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 AUDIO 'LET'S DO IT'</title>
+<script src="js/jquery-1.6.2.min.js"></script>
+<script>
+function toggleAudio()
+{
+	var audio = $('#myAudio').get(0);
+	var button = $('#toggleButton');
+	
+	if(audio.paused)
+	{
+		audio.play();
+		button.val("pause");	
+	}
+	else
+	{
+		audio.pause();
+		button.val("play");
+	}
+}
+</script>
+</head>
+
+<body>
+	<audio id="myAudio" width="0" height="0">
+    	<source src="audio/flight_of_the_valkyries.mp3"/>
+    	<source src="audio/flight_of_the_valkyries.ogg"/>        
+    </audio>
+    <input type="button" onclick="toggleAudio()" value="play" id="toggleButton"/>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 CANVAS 'LET'S INTERACT WITH IT'</title>
+<script src="js/jquery-1.6.2.min.js"></script>
+<style>
+	canvas { border: 1px solid black }
+</style>
+<script>
+	var lastMousePoint = {x:0, y:0};
+	var context;
+	var canvas;
+	
+	$(document).ready(function(e) {
+        canvas = document.getElementById( "myCanvas" );
+		context = canvas.getContext("2d");
+		context.strokeStyle = "#000000";
+		context.lineWidth = 1;
+		
+		$("#myCanvas").mousedown(onCanvasMouseDown);
+	});
+	
+	function onCanvasMouseDown(e)
+	{
+		$(document).mousemove(onCanvasMouseMove);
+		$(document).mouseup(onCanvasMouseUp);
+		updateMousePosition(e);
+		updateCanvas(e);
+	}
+	
+	function onCanvasMouseMove(e)
+	{
+		updateCanvas(e);	
+	}
+	
+	function onCanvasMouseUp(e)
+	{
+		$(document).unbind("mousemove", onCanvasMouseMove);
+		$(document).unbind("mouseup", onCanvasMouseUp);	
+	}
+	
+	function updateMousePosition(e)
+	{
+		var offset = $("#myCanvas").offset();
+		lastMousePoint.x = e.pageX - offset.left;
+		lastMousePoint.y = e.pageY - offset.top;	
+	}
+	
+	function updateCanvas(e)
+	{
+		context.beginPath();
+		context.moveTo(lastMousePoint.x, lastMousePoint.y);
+		updateMousePosition(e);
+		context.lineTo(lastMousePoint.x, lastMousePoint.y);
+		context.stroke();
+	}
+	
+</script>
+</head>
+
+<body>
+	<canvas id="myCanvas" width="400" height="300"/>
+</body>
+</html>

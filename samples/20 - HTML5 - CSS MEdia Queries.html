@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS MEDIA QUERIES 'CHECK DA RECORD HOMEBOY'</title>
+<style>
+	div
+	{
+		font-size:16px;
+		padding:5px;	
+	}
+	
+	@media (min-width:480px)
+	{
+		div
+		{
+			font-size:32px;
+			padding: 10px;	
+		}
+	}
+	
+	@media (min-width:1024px)
+	{
+		div
+		{
+			font-size:64px;
+			padding: 25px;	
+		}
+	}
+	
+	@media (orientation:portrait)
+	{
+		div
+		{
+			color:red;
+		}
+	}
+	
+	@media (orientation:landscape)
+	{
+		div
+		{
+			color:blue;
+		}
+	}
+
+	
+	
+</style>
+</head>
+
+<body>
+	<div>This is da randomest div I seen son!</div>
+</body>
+</html>

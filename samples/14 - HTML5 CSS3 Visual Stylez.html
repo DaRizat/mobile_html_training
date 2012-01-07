@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 CSS3 'STYLEZ ON STYLEZ ON STYLEZ' </title>
+<link href="http://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.6.2.min.js"></script>
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script>
+	$(document).ready(function(e) {
+        
+		$("#shadowSlider").slider({
+			min: 0,
+			max: 100,
+			value: 10,
+			slide: function( event, ui ) {
+				
+				var shadow = ui.value + "px " + ui.value + "px " + ui.value + "px #888";
+				$("#badge").css("-moz-box-shadow", shadow);
+				$("#badge").css("-webkit-box-shadow", shadow);
+				$("#badge").css("box-shadow", shadow);
+						
+			}
+		});
+		
+		$("#cornerSlider").slider({
+			min: 0,
+			max: 40,
+			value: 15,
+			slide: function( event, ui ) {
+				
+				var radius = ui.value + "px ";
+				$("#badge").css("-moz-border-radius", radius);
+				$("#badge").css("border-radius", radius);
+						
+			}
+		});
+    });
+</script>
+<link type="text/css" href="css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet"/>
+<style>
+	#badge
+	{
+		background-color: #FF0000;
+		color: white;
+		font-family:Arial, Helvetica, sans-serif;
+		text-align:center;
+		padding-top:15px;
+		padding-bottom:15px;
+		border: 3px solid #DDDDDD;
+		width:400px;
+		-moz-border-radius: 15px;
+		- webkit -border-radius: 15px;
+		border-radius: 15px;
+		
+		-moz-box-shadow: 10px 10px 5px #888;
+		-webkit-box-shadow: 10px 10px 5px #888;
+		box-shadow: 10px 10px 5px #888;
+	}
+	#name
+	{
+		font-family: "Nothing You Could Do";
+		font-size:56px;
+		background-color:#FFFFFF;
+		color:#000000;	
+	}
+	#hello
+	{
+		font-size:56px	
+	}
+	#controls
+	{
+		width: 200px;
+		left: 450px;
+		top: 20px;
+		position: absolute;	
+	}
+</style>
+</head>
+
+<body>
+	<div id="badge">
+    	<div id="hello">WHAT IT DO?</div>
+        <div id="myName">You can call me</div>
+        <div id="name">JRiz da CSS3 killah</div>
+    </div>
+    <div id="controls">
+    Shadow:
+    <div id="shadowSlider"></div>
+    Corner:
+    <div id="cornerSlider"></div>
+    </div>
+</body>
+</html>

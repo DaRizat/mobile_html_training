@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 CSS GRADIENTS 'FADE TO BLACK NIGGA'</title>
+<style>
+	#linear
+	{
+		width:200px;
+		height:200px;
+		background-image: -webkit-gradient (
+			linear,
+			left bottom,
+			left top,
+			color-stop(0.00, rgb(255,0,0)),	
+			color-stop(0.50, rgb(0,255,0)),	
+			color-stop(1.00, rgb(0,0,255))						
+		);
+		
+		background-image: -moz-linear-gradient (
+			center bottom,
+			rgb(255,0,0) 0%,
+			rgb(0,255,0) 50%,
+			rgb(0,0,255) 100%
+		);
+		
+		background-image: -o-linear-gradient (
+			rgb(255,0,0),
+			rgb(0,255,0),
+			rgb(0,0,255)
+		);
+	}
+</style>
+</head>
+
+<body>
+	<div id="linear">Linear Gradient</div>
+</body>
+</html>

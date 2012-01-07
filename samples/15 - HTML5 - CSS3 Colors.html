@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 CSS COLORS 'IM SEEING COLORS MAN!'</title>
+<link type="text/css" href="css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet"/>
+<script src="js/jquery-1.6.2.min.js"></script>
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<style>
+	body { background:url(images/background.png) }
+	
+	#rgba { position:absolute; left:0px; top: 0px; }
+	#hsla { position:absolute; left:350px; top: 0px; }
+	
+	#rSlider{ top:20px; left:120px; position:absolute }
+	#gSlider{ top:20px; left:160px; position:absolute }
+	#bSlider{ top:20px; left:200px; position:absolute }
+	#rgbaSlider{ top:20px; left:240px; position:absolute }			
+	
+	#hSlider{ top:20px; left:120px; position:absolute }
+	#sSlider{ top:20px; left:160px; position:absolute }
+	#lSlider{ top:20px; left:200px; position:absolute }
+	#hslaSlider{ top:20px; left:240px; position:absolute }	
+	
+	#hslaSwatch{ top:20px; left:20px; width:60px; height:100px; position:absolute; border: 2px solid black };	
+	#rgbaSwatch{ top:20px; left:20px; width:60px; height:100px; position:absolute; border: 2px solid black };	
+	
+</style>
+<script>
+	$(document).ready(function(e) {
+        
+		$("#rSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 255,
+			value: 0,
+			slide:function(event, ui)
+			{
+				updateRGBA();
+			}
+			
+		});
+		
+		$("#gSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 255,
+			value: 0,
+			slide:function(event, ui)
+			{
+				updateRGBA();
+			}
+			
+		});
+		
+		$("#bSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 255,
+			value: 0,
+			slide:function(event, ui)
+			{
+				updateRGBA();
+			}
+			
+		});
+		
+		$("#rgbaSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 100,
+			value: 100,
+			slide:function(event, ui)
+			{
+				updateRGBA();
+			}
+			
+		});
+		
+		$("#hSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 360,
+			value: 0,
+			slide:function(event, ui)
+			{
+				updateHSLA();
+			}
+			
+		});
+		
+		$("#sSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 100,
+			value: 0,
+			slide:function(event, ui)
+			{
+				updateHSLA();
+			}
+			
+		});
+		
+		$("#lSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 100,
+			value: 0,
+			slide:function(event, ui)
+			{
+				updateHSLA();
+			}
+			
+		});
+		
+		$("#hslaSlider").slider({
+			orientation:"vertical",
+			min: 0,
+			max: 100,
+			value: 100,
+			slide:function(event, ui)
+			{
+				updateHSLA();
+			}
+			
+		});
+		
+    });
+
+	function updateRGBA()
+	{
+		var css = "rgba( "+$("#rSlider").slider("value")+", "+$("#gSlider").slider("value")+", "+$("#bSlider").slider("value")+", "+$("#rgbaSlider").slider("value")/100+" )";
+		$("#rgbaSwatch").css( "background-color", css );
+		$("#rgbaSwatch").html(css);	
+	}
+	
+	function updateHSLA()
+	{
+		var hslacss = "hsla( "+$("#hSlider").slider("value")+", "+$("#sSlider").slider("value")+"%, "+$("#lSlider").slider("value")+"%, "+$("#hslaSlider").slider("value")/100+" )";
+		$("#hslaSwatch").css( "background-color", hslacss );
+		$("#hslaSwatch").html(hslacss);	
+	}
+	
+</script>
+</head>
+
+<body>
+	<div id="rgba">
+    	<div id="rgbaSwatch">RGBA</div>
+    	<div id="rSlider"></div>
+    	<div id="gSlider"></div>
+    	<div id="bSlider"></div>
+    	<div id="rgbaSlider"></div>                                
+    </div>
+    <br/>
+    <div id="hsla">
+    	<div id="hslaSwatch">HSLA</div>
+    	<div id="hSlider"></div>
+    	<div id="sSlider"></div>
+    	<div id="lSlider"></div>
+    	<div id="hslaSlider"></div>                                
+    </div>
+</body>
+</html>

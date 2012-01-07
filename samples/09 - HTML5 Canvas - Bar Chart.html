@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 BAR CHART 'LET'S DO IT'</title>
+<script>
+var data = [1,2,4,6,7,4,2,3,6,7,8,9,3,4,2,6,7,1,7,9];
+	
+function draw()
+{
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	context.strokeStyle = "#DDDDDD";
+	context.lineWidth = 1;
+	
+	var xIncrement = canvas.width / data.length;
+	var yIncrement = canvas.height / 10;
+	var padding = 2;
+	
+	context.strokeRect(0,0,canvas.width, canvas.height);
+	
+	for( var yPosition = 0; yPosition < canvas.height; yPosition += yIncrement )
+	{
+		context.moveTo(0, yPosition);
+		context.lineTo(canvas.width, yPosition);
+	}
+	
+	context.stroke();
+	
+	context.strokeStyle = "#000000";
+	context.lineWidth = 1;
+	context.fillStyle = "rgba(0,0,255, .25)";
+	
+	for ( var i = 0; i < data.length; i++)
+	{
+		var xPosition = (xIncrement * i) + padding;
+		var dataHeight = canvas.height * (data[i]/10);
+		var yPosition = canvas.height - (dataHeight-1);
+		
+		context.fillRect( xPosition, yPosition, xIncrement-2*padding, dataHeight);
+		context.strokeRect(	xPosition, yPosition, xIncrement-2*padding, dataHeight);
+	}
+}
+</script>
+<style>
+	canvas { border: 1px solid black }
+</style>
+</head>
+
+<body onload="draw()">
+	<canvas id="myCanvas" width="400" height="300"/>
+</body>
+</html>

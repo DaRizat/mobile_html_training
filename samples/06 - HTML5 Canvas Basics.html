@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 CANVAS 'LET'S DO IT'</title>
+<style>
+	canvas { border: 1px solid black }
+</style>
+<script>
+function draw()
+{
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	context.fillStyle = "#FF0000";
+	context.fillRect( 10, 10, 25, 25 );
+	
+	context.fillStyle = "rgba(0,255,0,.5)";
+	context.fillRect(25,25,25,25);
+	
+	var gradient = context.createLinearGradient( 45,45,80,80 );
+	gradient.addColorStop( 0, "rgba(0,0,255,.25)" );
+	gradient.addColorStop( 1, "#0000FF" );
+	context.fillStyle = gradient;
+	context.fillRect( 45,45,50,50 );
+	
+	context.fillStyle = "#00FF00";
+	context.arc(100,25,10,0,Math.PI*2, false);
+	context.fill();
+	
+	var gradient = context.createLinearGradient(200,200,100,100);
+	gradient.addColorStop( 0, "rgba(255,0,0,.25)" );
+	gradient.addColorStop( 0.5, "rgba(0,255,0,1)" );
+	gradient.addColorStop( 1, "rgba(0,0,255,.25)" );
+	context.fillStyle = gradient;
+	context.arc( 150,150,50,0, Math.PI*2,false );
+	context.fill();
+}
+
+</script>
+</head>
+
+<body onLoad="draw()">
+	<canvas id="myCanvas" width="400" height="300"/>
+</body>
+</html>

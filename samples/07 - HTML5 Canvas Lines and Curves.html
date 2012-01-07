@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 CANVAS 'LET'S DO IT'</title>
+<style>
+	canvas { border: 1px solid black }
+</style>
+<script>
+function draw()
+{
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	
+	context.strokeStyle = "#FF0000";
+	context.lineWidth = 5;
+	context.beginPath();
+	context.moveTo(10,10);
+	context.lineTo(390,290);
+	context.stroke();
+	
+	context.beginPath();
+	context.strokeStyle = "#00FF00";
+	context.lineWidth = 10;
+	context.moveTo(10,290);
+	context.quadraticCurveTo(390,10,390,280);
+	context.stroke();
+}
+
+</script>
+</head>
+
+<body onLoad="draw()">
+	<canvas id="myCanvas" width="400" height="300"/>
+</body>
+</html>

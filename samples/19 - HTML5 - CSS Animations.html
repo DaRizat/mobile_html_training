@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS ANIMATIONS! CHECK DA TIMELINE NIGGA!</title>
+<style>
+	@-webkit-keyframes sequence
+	{
+		0%
+		{
+			top: 0px;
+			left: 0px;
+			background: #FFFFFF;
+			padding: 0px;	
+		}
+		
+		33%
+		{
+			top:100px;
+			left:100px;
+			background: #00FF00;
+			padding: 20px;	
+		}
+		
+		66%
+		{
+			top:200px;
+			left:0px;
+			background: #FF0000;
+			color: #FFFFFF;
+			padding: 20px;	
+		}
+		
+		100%
+		{
+			top:0px;
+			left:0px;
+			background: #FFFFFF;
+			padding: 0px;	
+		}
+	}
+	
+	#animationDiv
+	{
+		position:absolute;
+		width:200px;
+		-webkit-animation-name:sequence;
+		-webkit-animation-duration: 10s;
+		-webkit-animation-timing-function: ease;	
+	}
+	
+</style>
+</head>
+
+<body>
+	<div id="animationDiv">We bout to get all animated up in this bitch!</div>
+</body>
+</html>
